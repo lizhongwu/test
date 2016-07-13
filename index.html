@@ -1,207 +1,60 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-    <title></title>
-    <style type="text/css">
-        * { -webkit-box-sizing: border-box; box-sizing: border-box; -webkit-font-smoothing:antialiased}
-        html,body {height: 100%;}
-        body,ul,li,div,p { padding: 0; margin: 0; border: 0; }
-        body { font-size: 16px;font-family: 'Microsoft Yahei', 'serif';overflow: hidden;}
-        ul,li { list-style: none}
-        .fl { float:left;}
-        .fr { float:right;}
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="modify-password.css"> -->
+    <style>
+        @font-face { font-family: 'PingFang SC Regular'; src: url('pingfang.ttf'); }
 
-        .header {position: relative; z-index:2; width: 100%; height: 44px; line-height: 44px; background-color: #FFF; border-bottom: 2px solid #f5f5f5}
-        .header .h-left { margin-left:6px;width: 10px; font-family: 'simsun'; font-size: 22px;}
-        .header .h-middle { position: absolute; top: 50%; left:50%; margin-top: -22px; margin-left: -34px; width: 68px; font-size: 17px; }
-        .header .h-right { margin-right:6px; width: 32px; color: #88BBEA;}
+* { 
+    margin:0; 
+    padding:0; 
+    border:0; 
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box; 
+    font-family: 'PingFang SC Regular';
+    background-color: #f3f3f3;
+}
 
-        .tab { position: relative; z-index:2; width: 100%; height: 44px; line-height: 44px; background-color: #FFF; border-bottom: 1px solid #f5f5f5}
-        .tab ul { display: block; position: absolute; top:50%; left: 50%; margin-top: -22px; margin-left: -135px; width: 270px; text-align: center;}
-        .tab ul li { float: left; display: block; width: 60px; height: 44px; font-size: 14px; margin: 0 15px;}
-        .tab ul li.cur { color:#88BBEA; border-bottom: 3px solid #88BBEA;}
+.fl { float: left;}
 
-        .contents { position: relative;width: 100%; height: 100%; background-color: #e9e9e9;}
-        .content { background-color: #FFF; margin-top: 8px; float: left;width: 100%; height: 20%;}
-        .c-left { padding: 10px 10px 10px 12px;}
-        .c-right { padding-top: 12px; width: 58%}
-        .cr-address { font-size: 14px; color: #a9a9a9; padding-top: 4px;}
+.mpsd-header { height:0.512rem; line-height: 0.5rem; border-bottom: 0.004rem solid #dedede; background-color: #fff;}
+.mpsd-header .back { margin-left: 0.12rem; color: #666666; font-family: '宋体'; font-size: 0.152rem; background-color: #fff;}
+.mpsd-header .title { margin-left: 0.944rem; font-size: 0.168rem; color: #1a1a1a; background-color: #fff;}
 
-        .pull-up {text-align: center;}
-
-        #scroller {
-            position: absolute;
-            z-index: 1;
-            -webkit-tap-highlight-color: rgba(0,0,0,0);
-            width: 100%;
-            -webkit-transform: translateZ(0);
-            -moz-transform: translateZ(0);
-            -ms-transform: translateZ(0);
-            -o-transform: translateZ(0);
-            transform: translateZ(0);
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            -webkit-text-size-adjust: none;
-            -moz-text-size-adjust: none;
-            -ms-text-size-adjust: none;
-            -o-text-size-adjust: none;
-            text-size-adjust: none;
-        }
+.mpsd-content { margin-top:0.12rem; height: 1.192rem; background-color: #fff; border-top: 0.004rem solid #dedede; border-bottom: 0.004rem solid #dedede;}
+.mpsd-content input { display: block; margin-left: 0.112rem; width: 2.876rem;  height: 0.392rem; 
+    line-height: 0.5rem; font-size: 0.128rem; background-color: #fff; outline:medium; }
+.mpsd-content input:focus {background:url("ic_clear.png") no-repeat scroll 2.616rem center;}
+.mpsd-btn { margin-top: 0.16rem; height: 0.408rem; text-align: center;}
+.mpsd-btn input { position: absolute; left:50%; 
+    transform: translate(-50%,0);-webkit-transform: translate(-50%,0);
+ display:block; width:2.768rem; height:0.4rem; background-color:#067ada; border-radius: 10px;
+ color: #ffffff; font-size: 0.152rem; line-height: 0.4rem;}
     </style>
+    <script>
+        document.getElementsByTagName("html")[0].style.fontSize=document.documentElement.clientWidth/3+"px";
+    </script>
 </head>
 <body>
-    <div class="header fl">
-        <div class="h-left fl"><</div>
-        <div class="h-middle fl">我的收藏</div>
-        <div class="h-right fr">编辑</div>
+    <div class="mpsd-header">
+        <div class="back fl"><</div>
+        <div class="title fl">修改密码</div>
     </div>
 
-    <div class="tab fl">
-        <ul>
-            <li class="cur">场馆</li>
-            <li>赛事</li>
-            <li>视频</li>
-        </ul>
+    <div class="mpsd-content">
+        <input type="password" placeholder="请输入旧密码"><i></i>
+   
+        <input type="password" placeholder="请输入新密码"><i></i>
+    
+        <input type="password" placeholder="请再次输入密码"><i></i>
     </div>
 
-    <div id="wrapper" class="contents fl">
-        <div id="scroller">
-            <div class="content">
-                <div class="c-left fl">
-                    <img src="1.png" alt="" width="110" height="84"/>
-                </div>
-                <div class="c-right fl">
-                    <p class="cr-title">体育健身运动中心</p>
-                    <p class="cr-address">地址：北京市西城区宣武门外大街富卓大厦4层</p>
-                </div>
-            </div>
-
-            <div class="content">
-                <div class="c-left fl">
-                    <img src="1.png" alt="" width="110" height="84"/>
-                </div>
-                <div class="c-right fl">
-                    <p class="cr-title">体育健身运动中心</p>
-                    <p class="cr-address">地址：北京市西城区宣武门外大街富卓大厦4层</p>
-                </div>
-            </div>
-
-            <div class="content">
-                <div class="c-left fl">
-                    <img src="1.png" alt="" width="110" height="84"/>
-                </div>
-                <div class="c-right fl">
-                    <p class="cr-title">体育健身运动中心</p>
-                    <p class="cr-address">地址：北京市西城区宣武门外大街富卓大厦4层</p>
-                </div>
-            </div>
-
-            <div class="content">
-                <div class="c-left fl">
-                    <img src="1.png" alt="" width="110" height="84"/>
-                </div>
-                <div class="c-right fl">
-                    <p class="cr-title">体育健身运动中心</p>
-                    <p class="cr-address">地址：北京市西城区宣武门外大街富卓大厦4层</p>
-                </div>
-            </div>
-
-            <div class="content">
-                <div class="c-left fl">
-                    <img src="1.png" alt="" width="110" height="84"/>
-                </div>
-                <div class="c-right fl">
-                    <p class="cr-title">体育健身运动中心</p>
-                    <p class="cr-address">地址：北京市西城区宣武门外大街富卓大厦4层</p>
-                </div>
-            </div>
-
-            <div class="content">
-                <div class="c-left fl">
-                    <img src="1.png" alt="" width="110" height="84"/>
-                </div>
-                <div class="c-right fl">
-                    <p class="cr-title">体育健身运动中心</p>
-                    <p class="cr-address">地址：北京市西城区宣武门外大街富卓大厦4层</p>
-                </div>
-            </div>
-
-            <div class="content">
-                <div class="c-left fl">
-                    <img src="1.png" alt="" width="110" height="84"/>
-                </div>
-                <div class="c-right fl">
-                    <p class="cr-title">体育健身运动中心</p>
-                    <p class="cr-address">地址：北京市西城区宣武门外大街富卓大厦4层</p>
-                </div>
-            </div>
-
-            <div class="content">
-                <div class="c-left fl">
-                    <img src="1.png" alt="" width="110" height="84"/>
-                </div>
-                <div class="c-right fl">
-                    <p class="cr-title">体育健身运动中心</p>
-                    <p class="cr-address">地址：北京市西城区宣武门外大街富卓大厦4层</p>
-                </div>
-            </div>
-
-            <div class="content">
-                <div class="c-left fl">
-                    <img src="1.png" alt="" width="110" height="84"/>
-                </div>
-                <div class="c-right fl">
-                    <p class="cr-title">体育健身运动中心</p>
-                    <p class="cr-address">地址：北京市西城区宣武门外大街富卓大厦4层</p>
-                </div>
-            </div>
-
-            <div class="content">
-                <div class="c-left fl">
-                    <img src="1.png" alt="" width="110" height="84"/>
-                </div>
-                <div class="c-right fl">
-                    <p class="cr-title">体育健身运动中心</p>
-                    <p class="cr-address">地址：北京市西城区宣武门外大街富卓大厦4层</p>
-                </div>
-            </div>
-
-            <div class="content">
-                <div class="c-left fl">
-                    <img src="1.png" alt="" width="110" height="84"/>
-                </div>
-                <div class="c-right fl">
-                    <p class="cr-title">体育健身运动中心</p>
-                    <p class="cr-address">地址：北京市西城区宣武门外大街富卓大厦4层</p>
-                </div>
-            </div>
-
-            <div class="pull-up">
-                <img src="loading-1.gif" alt=""/>
-            </div>
-        </div>
+    <div class="mpsd-btn">
+        <input type="button" value="确认修改">
     </div>
-
-
-    <script type="text/javascript" src="//cdn.bootcss.com/iScroll/5.2.0/iscroll.js"></script>
-    <script type="text/javascript">
-        var myScroll;
-        function loaded () {
-            myScroll = new IScroll('#wrapper', {
-                scrollX: true,
-                freeScroll: true,
-                mouseWheel: true
-//              scrollbars : true
-            });
-        }
-
-        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-        document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
-    </script>
 </body>
 </html>
